@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BAE3FA881A3F8FB60094C201 /* Result+Foundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE3FA871A3F8FB60094C201 /* Result+Foundation.swift */; };
+		BAE3FA891A3F8FB60094C201 /* Result+Foundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE3FA871A3F8FB60094C201 /* Result+Foundation.swift */; };
+		BAE3FA8B1A3F983A0094C201 /* Result+Foundation_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE3FA8A1A3F983A0094C201 /* Result+Foundation_Tests.swift */; };
+		BAE3FA8C1A3F983A0094C201 /* Result+Foundation_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE3FA8A1A3F983A0094C201 /* Result+Foundation_Tests.swift */; };
 		D0297D2919D679B3009986A9 /* LlamaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FB2F8D8619BF637B00E4C49E /* LlamaKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D0297D2A19D679B8009986A9 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2F8D9A19BF661000E4C49E /* Result.swift */; };
 		D0297D2B19D679C0009986A9 /* ResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2F8D9019BF637B00E4C49E /* ResultTests.swift */; };
@@ -35,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BAE3FA871A3F8FB60094C201 /* Result+Foundation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Result+Foundation.swift"; sourceTree = "<group>"; };
+		BAE3FA8A1A3F983A0094C201 /* Result+Foundation_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Result+Foundation_Tests.swift"; sourceTree = "<group>"; };
 		D0297D1019D67999009986A9 /* LlamaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LlamaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0297D1A19D67999009986A9 /* LlamaKit-MacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "LlamaKit-MacTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB2F8D8119BF637B00E4C49E /* LlamaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LlamaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +115,7 @@
 			children = (
 				FB2F8D8619BF637B00E4C49E /* LlamaKit.h */,
 				FB2F8D9A19BF661000E4C49E /* Result.swift */,
+				BAE3FA871A3F8FB60094C201 /* Result+Foundation.swift */,
 				FB2F8D8419BF637B00E4C49E /* Supporting Files */,
 			);
 			path = LlamaKit;
@@ -127,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				FB2F8D9019BF637B00E4C49E /* ResultTests.swift */,
+				BAE3FA8A1A3F983A0094C201 /* Result+Foundation_Tests.swift */,
 				FB2F8D8E19BF637B00E4C49E /* Supporting Files */,
 			);
 			path = LlamaKitTests;
@@ -314,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0297D2A19D679B8009986A9 /* Result.swift in Sources */,
+				BAE3FA891A3F8FB60094C201 /* Result+Foundation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0297D2B19D679C0009986A9 /* ResultTests.swift in Sources */,
+				BAE3FA8C1A3F983A0094C201 /* Result+Foundation_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB2F8D9B19BF661000E4C49E /* Result.swift in Sources */,
+				BAE3FA881A3F8FB60094C201 /* Result+Foundation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB2F8D9119BF637B00E4C49E /* ResultTests.swift in Sources */,
+				BAE3FA8B1A3F983A0094C201 /* Result+Foundation_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

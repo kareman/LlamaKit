@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Rob Napier. All rights reserved.
 //
 
-import Foundation
 import LlamaKit
 import XCTest
 
@@ -19,11 +18,6 @@ class ResultTests: XCTestCase {
     XCTAssertTrue(s.isSuccess)
   }
 
-  func testFailureIsNotSuccess() {
-    let f: Result<Bool, NSError> = failure()
-    XCTAssertFalse(f.isSuccess)
-  }
-
   func testSuccessReturnsValue() {
     let s: Result<Int,NSError> = success(42)
     XCTAssertEqual(s.value!, 42)
@@ -32,6 +26,11 @@ class ResultTests: XCTestCase {
   func testSuccessReturnsNoError() {
     let s: Result<Int,NSError> = success(42)
     XCTAssert(s.error == nil)
+  }
+
+  func testFailureIsNotSuccess() {
+    let f: Result<Bool, ()> = failure()
+    XCTAssertFalse(f.isSuccess)
   }
 
   func testFailureReturnsError() {
@@ -106,11 +105,6 @@ class ResultTests: XCTestCase {
     XCTAssertEqual(x.description, "Success: 42")
   }
 
-  func testDescriptionFailure() {
-    let x: Result<String, NSError> = failure()
-    XCTAssert(x.description.hasPrefix("Failure: Error Domain= Code=0 "))
-  }
-
   func testCoalesceSuccess() {
     let r: Result<Int, NSError> = success(42)
     let x = r ?? 43
@@ -120,32 +114,5 @@ class ResultTests: XCTestCase {
   func testCoalesceFailure() {
     let x = failure() ?? 43
     XCTAssertEqual(x, 43)
-  }
-
-  private func makeTryFunction<T>(x: T, _ succeed: Bool = true)(error: NSErrorPointer) -> T {
-    if !succeed {
-      error.memory = NSError(domain: "domain", code: 1, userInfo: [:])
-    }
-    return x
-  }
-
-  func testTryTSuccess() {
-    XCTAssertEqual(try(makeTryFunction(42 as Int?)) ?? 43, 42)
-  }
-
-  func testTryTFailure() {
-    let result = try(makeTryFunction(nil as Int?, false))
-    XCTAssertEqual(result ?? 43, 43)
-    XCTAssert(result.description.hasPrefix("Failure: Error Domain=domain Code=1 "))
-  }
-
-  func testTryBoolSuccess() {
-    XCTAssert(try(makeTryFunction(true)).isSuccess)
-  }
-
-  func testTryBoolFailure() {
-    let result = try(makeTryFunction(false, false))
-    XCTAssertFalse(result.isSuccess)
-    XCTAssert(result.description.hasPrefix("Failure: Error Domain=domain Code=1 "))
   }
 }
