@@ -26,7 +26,6 @@ class ResultTests: XCTestCase {
   let err = TestError("err")
   let err2 = TestError("err2")
 
-
   func testSuccessIsSuccess() {
     let s: Result<Int,TestError> = success(42)
     XCTAssertTrue(s.isSuccess)
@@ -62,6 +61,7 @@ class ResultTests: XCTestCase {
     XCTAssertNil(f.value)
   }
 
+
   func testMapSuccessUnaryOperator() {
     let x: Result<Int, TestError> = success(42)
     let y = x.map(-)
@@ -86,6 +86,7 @@ class ResultTests: XCTestCase {
     let y = x.map { countElements($0) }
     XCTAssertEqual(y.error!, self.err)
   }
+
 
   func doubleSuccess(x: Int) -> Result<Int, TestError> {
     return success(x * 2)
@@ -119,6 +120,7 @@ class ResultTests: XCTestCase {
     XCTAssertEqual(y.error!, self.err2)
   }
 
+
   func testDescriptionSuccess() {
     let x: Result<Int, TestError> = success(42)
     XCTAssertEqual(x.description, "Success: 42")
@@ -129,6 +131,7 @@ class ResultTests: XCTestCase {
     XCTAssert(x.description.hasPrefix("Failure: err"))
   }
 
+  
   func testCoalesceSuccess() {
     let r: Result<Int, TestError> = success(42)
     let x = r ?? 43

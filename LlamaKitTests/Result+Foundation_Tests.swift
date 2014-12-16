@@ -16,6 +16,7 @@ class Result_Foundation_Tests: XCTestCase {
     XCTAssertFalse(f.isSuccess)
   }
 
+
   private func makeTryFunction<T>(x: T, _ succeed: Bool = true)(error: NSErrorPointer) -> T {
     if !succeed {
       error.memory = NSError(domain: "domain", code: 1, userInfo: [:])
@@ -43,6 +44,7 @@ class Result_Foundation_Tests: XCTestCase {
     XCTAssert(result.description.hasPrefix("Failure: Error Domain=domain Code=1 "))
   }
 
+  
   func testDescriptionFailure() {
     let x: Result<String, NSError> = failure()
     XCTAssert(x.description.hasPrefix("Failure: Error Domain= Code=0 "))

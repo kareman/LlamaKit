@@ -4,9 +4,9 @@
 ///
 
 
-/// A success `Result` returning `value`
+/// A successful `Result` returning `value`.
 /// This form is preferred to `Result.Success(Box(value))` because it
-/// does not require dealing with `Box()`
+/// does not require dealing with `Box()`.
 public func success<T,E>(value: T) -> Result<T,E> {
   return .Success(Box(value))
 }
@@ -15,7 +15,7 @@ public func failure<T,E>(error: E) -> Result<T,E> {
   return .Failure(Box(error))
 }
 
-/// Container for a successful value (T) or a failure with an E
+/// Container for a successful value (T) or a failure (E)
 public enum Result<T,E> {
   case Success(Box<T>)
   case Failure(Box<E>)
@@ -44,7 +44,7 @@ public enum Result<T,E> {
   }
 
   /// Return a new result after applying a transformation to a successful value.
-  /// Mapping a failure returns a new failure without evaluating the transform
+  /// Mapping a failure returns a new failure without evaluating the transform.
   public func map<U>(transform: T -> U) -> Result<U,E> {
     switch self {
     case Success(let box):
@@ -56,7 +56,7 @@ public enum Result<T,E> {
 
   /// Return a new result after applying a transformation (that itself
   /// returns a result) to a successful value.
-  /// Calling with a failure returns a new failure without evaluating the transform
+  /// Calling with a failure returns a new failure without evaluating the transform.
   public func flatMap<U>(transform:T -> Result<U,E>) -> Result<U,E> {
     switch self {
     case Success(let value): return transform(value.unbox)
@@ -89,7 +89,7 @@ public func ??<T,E>(result: Result<T,E>, defaultValue: @autoclosure () -> T) -> 
 }
 
 /// Due to current swift limitations, we have to include this Box in Result.
-/// Swift cannot handle an enum with multiple associated data (A, NSError) where one is of unknown size (A)
+/// Swift cannot handle an enum with associated data where one is of unknown size.
 final public class Box<T> {
   public let unbox: T
   public init(_ value: T) { self.unbox = value }
