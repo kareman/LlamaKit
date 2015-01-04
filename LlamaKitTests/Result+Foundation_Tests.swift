@@ -12,7 +12,7 @@ import XCTest
 class Result_Foundation_Tests: XCTestCase {
 
   func testFailureIsNotSuccess() {
-    let f: Result<Bool, NSError> = failure()
+    let f = Result<Bool, NSError>.failure23()
     XCTAssertFalse(f.isSuccess)
   }
 
@@ -46,7 +46,7 @@ class Result_Foundation_Tests: XCTestCase {
 
   
   func testDescriptionFailure() {
-    let x: Result<String, NSError> = failure()
+    let x = Result<String, NSError>.failure23()
     XCTAssert(x.description.hasPrefix("Failure: Error Domain= Code=0 "))
   }
 }

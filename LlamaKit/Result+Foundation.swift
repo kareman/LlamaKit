@@ -24,22 +24,24 @@ private func defaultError(file: String = __FILE__, line: Int = __LINE__) -> NSEr
   return defaultError([ErrorFileKey: file, ErrorLineKey: line])
 }
 
-public func failure<T>(message: String, file: String = __FILE__, line: Int = __LINE__) -> Result<T,NSError> {
-  let userInfo: [NSObject : AnyObject] = [NSLocalizedDescriptionKey: message, ErrorFileKey: file, ErrorLineKey: line]
-  return Result.failure(defaultError(userInfo))
-}
+extension Result {
+  public static func failure(message: String, file: String = __FILE__, line: Int = __LINE__) -> Result<T,NSError> {
+    let userInfo: [NSObject : AnyObject] = [NSLocalizedDescriptionKey: message, ErrorFileKey: file, ErrorLineKey: line]
+    return Result<T, NSError>.failure(defaultError(userInfo))
+  }
 
-/// A failure `Result` returning `error`
-/// The default error is an empty one so that `failure()` is legal
-/// To assign this to a variable, you must explicitly give a type.
-/// Otherwise the compiler has no idea what `T` is. This form is preferred
-/// to Result.Failure(error) because it provides a useful default.
-/// For example:
-///    let fail: Result<Int> = failure()
-///
-public func failure<T>(file: String = __FILE__, line: Int = __LINE__) -> Result<T,NSError> {
-  let userInfo: [NSObject : AnyObject] = [ErrorFileKey: file, ErrorLineKey: line]
-  return Result.failure(defaultError(userInfo))
+  /// A failure `Result` returning `error`
+  /// The default error is an empty one so that `failure()` is legal
+  /// To assign this to a variable, you must explicitly give a type.
+  /// Otherwise the compiler has no idea what `T` is. This form is preferred
+  /// to Result.Failure(error) because it provides a useful default.
+  /// For example:
+  ///    let fail: Result<Int> = failure()
+  ///
+  public static func failure23(file: String = __FILE__, line: Int = __LINE__) -> Result<T,NSError> {
+    let userInfo: [NSObject : AnyObject] = [ErrorFileKey: file, ErrorLineKey: line]
+    return Result<T, NSError>.failure(defaultError(userInfo))
+  }
 }
 
 /// Construct a `Result` using a block which receives an error parameter.
