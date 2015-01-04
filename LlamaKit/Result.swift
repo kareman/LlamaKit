@@ -4,21 +4,21 @@
 ///
 
 
-/// A successful `Result` returning `value`.
-/// This form is preferred to `Result.Success(Box(value))` because it
-/// does not require dealing with `Box()`.
-public func success<T,E>(value: T) -> Result<T,E> {
-  return .Success(Box(value))
-}
-
-public func failure<T,E>(error: E) -> Result<T,E> {
-  return .Failure(Box(error))
-}
-
 /// Container for a successful value (T) or a failure (E)
 public enum Result<T,E> {
   case Success(Box<T>)
   case Failure(Box<E>)
+
+  /// A successful `Result` returning `value`.
+  /// This form is preferred to `Result.Success(Box(value))` because it
+  /// does not require dealing with `Box()`.
+  public static func success(value: T) -> Result<T,E> {
+    return .Success(Box(value))
+  }
+
+  public static func failure(error: E) -> Result<T,E> {
+    return .Failure(Box(error))
+  }
 
   /// The successful value as an Optional
   public var value: T? {

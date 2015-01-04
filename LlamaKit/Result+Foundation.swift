@@ -26,7 +26,7 @@ private func defaultError(file: String = __FILE__, line: Int = __LINE__) -> NSEr
 
 public func failure<T>(message: String, file: String = __FILE__, line: Int = __LINE__) -> Result<T,NSError> {
   let userInfo: [NSObject : AnyObject] = [NSLocalizedDescriptionKey: message, ErrorFileKey: file, ErrorLineKey: line]
-  return failure(defaultError(userInfo))
+  return Result.failure(defaultError(userInfo))
 }
 
 /// A failure `Result` returning `error`
@@ -39,7 +39,7 @@ public func failure<T>(message: String, file: String = __FILE__, line: Int = __L
 ///
 public func failure<T>(file: String = __FILE__, line: Int = __LINE__) -> Result<T,NSError> {
   let userInfo: [NSObject : AnyObject] = [ErrorFileKey: file, ErrorLineKey: line]
-  return failure(defaultError(userInfo))
+  return Result.failure(defaultError(userInfo))
 }
 
 /// Construct a `Result` using a block which receives an error parameter.
@@ -47,10 +47,10 @@ public func failure<T>(file: String = __FILE__, line: Int = __LINE__) -> Result<
 
 public func try<T>(f: NSErrorPointer -> T?, file: String = __FILE__, line: Int = __LINE__) -> Result<T,NSError> {
   var error: NSError?
-  return f(&error).map(success) ?? failure(error ?? defaultError(file: file, line: line))
+  return f(&error).map(Result.success) ?? Result.failure(error ?? defaultError(file: file, line: line))
 }
 
 public func try(f: NSErrorPointer -> Bool, file: String = __FILE__, line: Int = __LINE__) -> Result<(),NSError> {
   var error: NSError?
-  return f(&error) ? success(()) : failure(error ?? defaultError(file: file, line: line))
+  return f(&error) ? Result.success(()) : Result.failure(error ?? defaultError(file: file, line: line))
 }
