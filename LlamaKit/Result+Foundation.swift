@@ -1,10 +1,10 @@
 //
-//  Result+Foundation.swift
-//  LlamaKit
+// Result+Foundation.swift
+// LlamaKit
 //
-//  Created by Kåre Morstøl on 15.12.14.
-//  Copyright (c) 2014 Rob Napier. All rights reserved.
-//
+
+/// Additions to Result for using it with Cocoa and Foundation.
+/// In other words; the .Failure value is an NSError.
 
 import Foundation
 

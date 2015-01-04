@@ -1,8 +1,7 @@
-/// Result
-///
-/// Container for a successful value (T) or a failure (E)
-///
-
+//
+// Result.swift
+// LlamaKit
+//
 
 /// Container for a successful value (T) or a failure (E)
 public enum Result<T,E> {

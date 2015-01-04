@@ -1,9 +1,9 @@
 //
-//  Result+Foundation_Tests.swift
-//  LlamaKit
+// Result+Foundation_Tests.swift
+// LlamaKitTests
 //
-//  Created by Kåre Morstøl on 15.12.14.
-//  Copyright (c) 2014 Rob Napier. All rights reserved.
+// Created by Rob Napier on 9/9/14.
+// Copyright (c) 2014 Rob Napier. All rights reserved.
 //
 
 import LlamaKit

@@ -1,9 +1,9 @@
 //
-//  LlamaKitTests.swift
-//  LlamaKitTests
+// LlamaKitTests.swift
+// LlamaKitTests
 //
-//  Created by Rob Napier on 9/9/14.
-//  Copyright (c) 2014 Rob Napier. All rights reserved.
+// Created by Rob Napier on 9/9/14.
+// Copyright (c) 2014 Rob Napier. All rights reserved.
 //
 
 import LlamaKit
