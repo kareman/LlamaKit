@@ -1,3 +1,5 @@
+_My version of [Rob Napier's LlamaKit](https://github.com/LlamaKit/LlamaKit). The main difference is I have moved anything regarding NSError to Result+Foundation.swift, leaving Result.swift pure Swift. This makes it more practical to use in a Swift framework._
+
 LlamaKit
 ========
 
